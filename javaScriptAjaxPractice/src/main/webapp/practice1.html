@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>변수선언과 타입</title>
+</head>
+<body>
+	<script>
+	
+		// 변수 선언 방식
+		function test() {
+			{
+				var a = 10; // var는 호이스팅 되어 전역변수가 된다.(지금 이렇게 함수 생명주기로)
+				let b = 20; // let도 호이스팅 되어 전연벽수가 되지만 TDZ(일시적사각지대)처리가 되어 지역변수(블록 생명주기)의 개념으로 변형된다. 결론적으로 지역변수. java개념처럼 이해.
+			}
+			console.log('test()함수안의 var a : ',a);
+			// console.log(b);  // let b는 test()함수 블록안에서 생을 마감한다.. ReferenceError: b is not defined  
+		}
+		
+		// 함수 실행
+		test();
+		
+		// JavaScript의 타입은 언제든지 변경될 수 있다. 대신 String인 타입을 쓰려면 값을 "" or '' 안에 써야한다.
+		let h = 'hello'; // "hello", `hello`
+		console.log('h의 값 :', h, ', h의 타입 :',typeof(h));
+		
+		// const도 let과 같지만 JAVA의 final같이 상수선언된다.(상수:프로그램안에서 변하지 않는 값)
+		// JAVA의 final은 클래스, 메서드, 필드에서도 적용될 수 있지만 JavaScript의 const는 변수에 대해서만 적용된다.
+		const z = 777;
+		// z = 888; // TypeError: Assignment to constant variable
+		
+		// sts나 이클립스의 console창 말고 브라우저에서 F12를 눌러 접근하는 개발자 모드의 console에서 확인 가능하다.
+		console.log('const z : ',z); // const z가 777로 선언 됐는데 z안에 또 다른 값을 넣으면 이 console.log는 에러가 뜬다.
+		
+	</script>
+</body>
+</html>

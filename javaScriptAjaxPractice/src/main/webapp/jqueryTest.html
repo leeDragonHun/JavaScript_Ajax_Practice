@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- jQuery 라이브러리를 CDN을 통해 가져왔다.  -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<!-- 
+	자바스크립트가 DOM 이벤트 처리를 할 때 코드가 매우 길어지는데 이것을 추상화 시켜서 간편하고 가독성이 높은 형태로 도와주는 API가 JQuery이다.
+	jQuery의 $()함수를 통해 저번까지 연습했던 자바스크립트 코드를 매우 편하게 사용할 수 있다.
+	$() 함수는 JQuery()함수의 축약형으로 매개값을 JQuery의 객체로 변경하여 반환한다.
+	자바스크립트 객체가 JQuery객체로 랩핑되어 JQuery 메서드,속성등을 사용할 수 있게 된다.
+ -->
+</head>
+<body>
+	<div id="one">one text...</div>
+	
+	<script>
+		// $('#one'): jQuery 문법을 사용하여 id="one"인 요소를 선택		
+		$('#one');
+		
+		// $('#one').text(): 선택된 요소의 텍스트 내용을 반환
+		// alert($('#one').text())는 "one text..." 문자열을 경고창으로 표시
+		alert($('#one').text());
+		// $('#one').text('수정...');: 선택된 요소의 텍스트 내용을 "수정..."으로 변경
+		// <div id="one">의 텍스트가 "수정...test"으로 바뀐다.
+		$('#one').text('수정...test');
+	</script>
+</body>

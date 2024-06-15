@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+	<input type="text" id="id">
+	<button type="button" id="idck">중복검사</button>
+	
+	<hr>
+	
+	<form>
+		id :<input type="text" id="id2" readonly="readonly">
+		<button type="button">회원가입</button>
+	</form>
+	
+	<script>
+		$('#idck').click(function(){
+			// console.log('idck버턴 클릭');
+			if($('#id').val() == '') {
+				alert('중복검사 아이디를 입력하세요');
+				$('#id').focus();
+				return;
+			}
+			
+			$.ajax({
+				// 서버로 요청을 보낼 URL이다. 이 URL은 '/javaScriptAjaxPractice/idCheck'로 설정되어 있는 것임.
+				url:'/javaScriptAjaxPractice/idCheck',
+				// HTTP 요청 메서드로, 이 경우 POST 방식을 사용하여 서버에 데이터를 전송하는 것임.
+				method:'post',
+				// 요청 시 함께 서버에 전송할 데이터임. 여기서는 id라는 키에 해당하는 값으로, '#id'라는 HTML 요소의 값을 사용.. 즉, 사용자가 입력한 id 값을 서버로 전송함.
+				data : {'id':$('#id').val()},
+				// AJAX 요청이 성공했을 때 실행될 콜백 함수임. 서버로부터의 응답 데이터가 매개변수 json으로 전달된다.
+				// json방식으로 많이 주고 받고 하다보니 매개변수 이름을 json이라고 정했을뿐이다.
+				success:function(json){
+                    console.log('json :', json);
+                    // 이 매개변수 json이 0인지 아닌지 해서 분기문으로 경고창을 띄우려고 하는 것이다.
+					if(json == 0) {
+						$('#id2').val($('#id').val());
+					} else {
+						alert('사용중인 아이디 입니다');
+						$('#id').focus();
+					}
+				}
+			});
+		});	
+	</script>
+</body>
+</html>

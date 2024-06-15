@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>제어문</title>
+</head>
+<body>
+	<script>
+		// 조건문
+		let  genderCode = 4;
+		let gender = '';
+		// 나머지가 0이면 여자를, 1이면 남자를 출력
+		if(genderCode % 2 == 0){
+			gender = '여자'; 
+		} else {
+			gender = '남자';
+		}
+		console.log('gender : ', gender);
+		
+		// 반복문
+		let total = 0;
+		for(let i=1; i<11; i++){
+			total += i;
+		}
+		console.log('total : ', total);
+		
+		// 배열 길이만큼 반복해서 배열값 하나하나를 출력하기
+		let arr = ['kim', 'park', 'lee'];
+		for(let i=0; i<arr.length; i++) {
+			console.log(arr[i]);
+		}
+		
+		// foreach문은 좀 다르다.
+		for(let n of arr){
+			console.log('n : ', n)
+		}
+		
+		// foreach문 보다 foreach함수를 쓰는 게 편하다.
+		// 화살표 함수 선언 방식 (n)=>{};
+		arr.forEach((n)=>{
+			console.log('foreach함수로 : ', n);
+		});
+	</script>
+</body>
+</html>

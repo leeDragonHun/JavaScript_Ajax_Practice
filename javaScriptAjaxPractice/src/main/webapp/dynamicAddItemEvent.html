@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+	<button id="btn" type="button">버턴</button>
+	<h1>동적태그</h1>
+	<div id="output"></div>
+	
+	<script>
+		// #btn을 클릭하면
+		// #output에 html 코드를 삽입한다.
+		$('#btn').click(function(){
+			$('#output').html('<button type="button" id="newBtn">NewButton</button>');
+		});
+		
+		// 처음 이 페이지의 소스코드를 불러올 때는 #newBtn이 존재하지 않는다. 클릭을 해야 나타나기 때문이다.
+		// 그래서 클릭 이벤트를 설정할 때 $(document)를 더 먼저 사용하여 이벤트를 위임했다.
+		// $(document)는 지금 이 페이지 문서 객체를 jQuery로 선택하는 것을 의미한다.
+		// 그렇기에 버튼이 생긴 후에도 문서 전체를 읽어서 #newBtn인것을 가져와서 이벤트를 발생시키는 것이 가능한 코드이다.
+		$(document).on('click', '#newBtn', function(){
+			alert('new button click!');
+		});
+	</script>
+</body>
+</html>

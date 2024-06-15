@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>로그인 폼 유효성검사 연습</title>
+</head>
+<body>
+	<form id="inForm" method="post" action="https://www.naver.com/">
+		<div>
+			아이디 :
+			<input type="text" id="id" name="id">
+		</div>
+		<div>
+			비빌번호 :
+			<input type="password" id="pw" name="pw">
+		</div>
+		<div>
+			비빌번호확인 :
+			<input type="password" id="pwConfirm" name="pwConfirm">
+		</div>
+		<div>
+			<button type="button" id="btn">회원가입</button>
+		</div>
+	</form>
+	<script>
+		// 회원가입 버튼을 클릭하면 각 항목의 유효성 검사를 통해 통과를 못 하면 alert를 띄울 것이다.
+		// form id="inForm" 으로 서브밋
+		document.querySelector('#btn').addEventListener('click', function(){
+			// #id의 값이 "" 공백이라면 alert창을 띄워라. 그리고 focus는 #id로 가게 해라. focus는 커서이다.
+			if(document.querySelector('#id').value == '') {
+				alert('id를 입력하세요');
+				document.querySelector('#id').focus();
+				return;
+			}
+			
+			if(document.querySelector('#pw').value == '') {
+				alert('pw를 입력하세요');
+				document.querySelector('#pw').focus();
+				return;
+			}
+			
+			if(document.querySelector('#pw').value 
+					!= document.querySelector('#pwConfirm').value) {
+				alert('pw를 확인하세요');
+				document.querySelector('#pwConfirm').focus();
+				return;
+			}
+			
+			// 위 if문을 무탈하게 통과하면 드디어 도달.
+			// 버튼을 눌렀을 때 #inForm은 submit() 된다.
+			// 원래는 버튼의 타입이 submit이었는데, 이제는 버튼을 눌렀을 때 각종 유효성 검사를 지나 마지막 동작이 지정한 form 을 submit시키는 방식이다.
+			document.querySelector('#inForm').submit();
+		});
+	</script>
+</body>
+</html>

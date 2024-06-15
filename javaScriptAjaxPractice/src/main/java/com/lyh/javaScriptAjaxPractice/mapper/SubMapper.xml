@@ -1,0 +1,23 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lyh.javaScriptAjaxPractice.mapper.SubMapper">
+	<select id="selectLargeName" resultType="String">
+		SELECT large_name largeName
+		FROM large	
+	</select>
+	
+	<select id="selectMediumName" parameterType="String" resultType="Map">
+		SELECT 
+			medium_no mediumNo,
+			medium_name mediumName
+		FROM medium
+		Where large_name = #{largeName}
+	</select>
+	
+	<select id="selectSmallName" parameterType="int" resultType="Map">
+		SELECT 
+			small_no smallNo,
+			small_name smallName
+		FROM small
+		Where large_name = #{mediumNo}
+	</select>
+</mapper>
