@@ -1,1 +1,4 @@
-# leeDragonHun-javaScriptAjaxPractice
+# 자바스크립트와 AJAX 연습
+## 연습 내용(webapp에 있음)
+1. 자바스크립트의 기본 문법과 동작 원리 이해
+2. AJAX의 기본 문법과 동작 원리 이해
