@@ -11,7 +11,7 @@ import com.lyh.javaScriptAjaxPractice.mapper.MemberMapper;
 import lombok.extern.slf4j.Slf4j;
 
 // 페이지를 요청하는 게 있고 데이터를 요청하는 게있다.
-// rest는 데이털르 요청하는 방식일 때 쓴다.
+// rest는 데이터를 요청하는 방식일 때 쓴다.
 @RestController
 @Transactional
 @Slf4j
